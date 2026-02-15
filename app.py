@@ -119,7 +119,7 @@ def main():
         col4.metric("Missing", df.isnull().sum().sum())
         
         with st.expander("🔍 View Data"):
-            st.dataframe(df.head(10), use_container_width=True)
+            st.dataframe(df.head(10), width=None)
         
         if train_button:
             with st.spinner("Training models..."):
@@ -147,7 +147,7 @@ def main():
             st.dataframe(comparison_df.style.highlight_max(
                 subset=['Accuracy', 'Precision', 'Recall', 'F1-Score'], color='lightgreen'
             ).format({col: '{:.4f}' for col in comparison_df.columns if col != 'Model'}),
-            use_container_width=True)
+            width=None)
             
             col1, col2, col3 = st.columns(3)
             with col1:
@@ -170,17 +170,17 @@ def main():
             st.info(f"🏆 Best: {best_name} (Accuracy: {best_res['accuracy']:.4f})")
             
             st.subheader("📊 Visualizations")
-            st.plotly_chart(plot_metrics_comparison(comparison_df), use_container_width=True, key="viz_comp")
+            st.plotly_chart(plot_metrics_comparison(comparison_df), key="viz_comp")
             
             if len(np.unique(y_test)) == 2:
                 st.subheader("📉 ROC Curves")
-                st.plotly_chart(plot_roc_curves(ml_models.results, y_test), use_container_width=True, key="viz_roc")
+                st.plotly_chart(plot_roc_curves(ml_models.results, y_test), key="viz_roc")
             
             st.subheader("🔲 Confusion Matrices")
             selected = st.selectbox("Select model:", list(ml_models.results.keys()))
             if selected:
                 st.plotly_chart(plot_confusion_matrix(ml_models.results[selected]['confusion_matrix'], selected),
-                              use_container_width=True, key=f"cm_{selected}")
+                              key=f"cm_{selected}")
             
             with st.expander("All Confusion Matrices"):
                 models_list = list(ml_models.results.keys())
@@ -192,7 +192,7 @@ def main():
                             with col:
                                 st.plotly_chart(plot_confusion_matrix(
                                     ml_models.results[name]['confusion_matrix'], name),
-                                    use_container_width=True, key=f"cm_grid_{i}_{j}")
+                                    key=f"cm_grid_{i}_{j}")
     else:
         st.info("👈 Select or upload a dataset to begin")
 
