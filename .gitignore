@@ -47,6 +47,7 @@ Thumbs.db
 
 # Data files
 *.csv
+!test_data_sample.csv
 *.xlsx
 *.xls
 data/
