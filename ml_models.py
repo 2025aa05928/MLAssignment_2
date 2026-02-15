@@ -5,8 +5,7 @@ import numpy as np
 from sklearn.model_selection import train_test_split, cross_val_score
 from sklearn.preprocessing import StandardScaler, LabelEncoder
 from sklearn.linear_model import LogisticRegression
-from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
-from sklearn.svm import SVC
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.naive_bayes import GaussianNB
@@ -31,13 +30,11 @@ class MultiClassificationModels:
     def initialize_models(self):
         self.models = {
             'Logistic Regression': LogisticRegression(random_state=self.random_state, max_iter=1000),
-            'Random Forest': RandomForestClassifier(n_estimators=100, random_state=self.random_state),
-            'Support Vector Machine': SVC(kernel='rbf', random_state=self.random_state, probability=True),
-            'K-Nearest Neighbors': KNeighborsClassifier(n_neighbors=5),
             'Decision Tree': DecisionTreeClassifier(random_state=self.random_state, max_depth=10),
-            'Gradient Boosting': GradientBoostingClassifier(n_estimators=100, random_state=self.random_state),
-            'XGBoost': XGBClassifier(n_estimators=100, random_state=self.random_state, eval_metric='logloss'),
-            'Naive Bayes': GaussianNB()
+            'K-Nearest Neighbors': KNeighborsClassifier(n_neighbors=5),
+            'Naive Bayes': GaussianNB(),
+            'Random Forest': RandomForestClassifier(n_estimators=100, random_state=self.random_state),
+            'XGBoost': XGBClassifier(n_estimators=100, random_state=self.random_state, eval_metric='logloss')
         }
         
     def train_all_models(self):

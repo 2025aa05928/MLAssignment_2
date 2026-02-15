@@ -98,11 +98,12 @@ Gradient boosting implementation with 100 estimators. Uses regularization to pre
 
 ```
 project-folder/
-├── app.py              # Streamlit application
-├── ml_models.py        # Model implementations  
-├── requirements.txt    # Python dependencies
-├── models/             # Saved model files folder
-└── README.md           # Project documentation
+├── app.py                   # Streamlit application
+├── ml_models.py             # Model implementations  
+├── requirements.txt         # Python dependencies
+├── test_data_sample.csv     # Sample CSV for testing upload feature
+├── models/                  # Saved model files folder
+└── README.md                # Project documentation
 ```
 
 ---
@@ -123,6 +124,14 @@ streamlit run app.py
 
 Application opens at: http://localhost:8501
 
+### Testing with Sample CSV:
+To test the CSV upload feature, use the provided `test_data_sample.csv`:
+1. Run the Streamlit app
+2. In the sidebar, check "Upload custom CSV"
+3. Upload `test_data_sample.csv`
+4. Select `target` as the target column
+5. Click "Train Models"
+
 ---
 
 ## Streamlit App Features
@@ -133,10 +142,11 @@ Application opens at: http://localhost:8501
    - Upload custom test datasets via sidebar
    - Supports CSV format with configurable target column
    - Built-in Breast Cancer dataset (569 samples, 30 features)
+   - Sample test CSV provided: `test_data_sample.csv` (100 samples for testing)
 
 **b. Model selection dropdown** ✅  
    - Dropdown to select individual models or train all
-   - 8 models available: Logistic Regression, Decision Tree, KNN, Naive Bayes, Random Forest, XGBoost, SVM, Gradient Boosting
+   - 6 models available: Logistic Regression, Decision Tree, KNN, Naive Bayes, Random Forest, XGBoost
 
 **c. Display of evaluation metrics** ✅  
    - Comprehensive metrics table showing all 6 metrics

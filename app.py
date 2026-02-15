@@ -103,7 +103,7 @@ def main():
     # Model selection dropdown
     st.sidebar.subheader("3. Model Selection")
     available_models = ['All Models', 'Logistic Regression', 'Decision Tree', 'K-Nearest Neighbors',
-                       'Naive Bayes', 'Random Forest', 'XGBoost', 'SVM', 'Gradient Boosting']
+                       'Naive Bayes', 'Random Forest', 'XGBoost']
     selected_model_option = st.sidebar.selectbox("Select model to train:", available_models)
     
     train_button = st.sidebar.button("🚀 Train Models", type="primary", use_container_width=True)
