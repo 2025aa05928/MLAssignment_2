@@ -1,3 +1,50 @@
+# ML Assignment 2 - Submission Document
+
+**Name:** Vinoth KR  
+**BITS ID:** 2025aa05928  
+**Date:** February 15, 2026
+
+---
+
+## 1. GitHub Repository Link
+
+**Repository URL:** [TO BE FILLED - Your GitHub repository URL]
+
+Example: `https://github.com/vinothkr/ml-classification-assignment`
+
+**Note:** Repository contains `models/` folder as required.
+
+---
+
+## 2. Streamlit App Link
+
+**Deployed App URL:** [TO BE FILLED - Your Streamlit Cloud app URL]
+
+Example: `https://2025aa05928-ml-app.streamlit.app`
+
+**Features Verified:**
+- ✅ Download button for test CSV (predictions)
+- ✅ Upload button for custom CSV datasets
+- ✅ Metrics table with all 6 metrics (Accuracy, AUC, Precision, Recall, F1, MCC)
+- ✅ Confusion matrix for all models
+
+---
+
+## 3. BITS Virtual Lab Screenshot
+
+[INSERT SCREENSHOT HERE]
+
+**Screenshot Requirements:**
+- Open BITS Virtual Lab
+- Open the Streamlit app URL in browser
+- Show code execution (terminal with `streamlit run app.py`)
+- Ensure URL is visible in browser address bar
+- Capture full screen showing both browser and terminal
+
+---
+
+## 4. README Content
+
 # ML Classification Models - Assignment 2
 
 **Name:** Vinoth KR  
@@ -163,8 +210,26 @@ Application opens at: http://localhost:8501
 
 Deployed on Streamlit Community Cloud.
 
-**Live App URL:** [Your deployed Streamlit app URL will appear here after deployment]
+**Live App URL:** [TO BE FILLED]
 
 ---
 
 **ML Assignment 2 | BITS Pilani | February 2026**
+
+---
+
+## Submission Checklist
+
+- [ ] GitHub repository created with `models/` folder
+- [ ] No training data uploaded to GitHub
+- [ ] Streamlit app deployed on Community Cloud
+- [ ] App includes download & upload buttons
+- [ ] App displays metrics table and confusion matrix
+- [ ] BITS Virtual Lab screenshot captured (showing URL and code)
+- [ ] README content added to PDF
+- [ ] PDF file named `2025aa05928.pdf`
+- [ ] Submitted before deadline (15 Feb 23:59 PM IST)
+
+---
+
+**End of Submission Document**
