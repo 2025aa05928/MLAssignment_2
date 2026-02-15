@@ -55,7 +55,9 @@ datasets/
 # Model files
 *.pkl
 *.joblib
-models/
+models/*.pkl
+models/*.joblib
+!models/README.md
 
 # Logs
 *.log
