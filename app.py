@@ -145,7 +145,7 @@ def main():
             
             st.subheader("📋 Metrics")
             st.dataframe(comparison_df.style.highlight_max(
-                subset=['Accuracy', 'Precision', 'Recall', 'F1-Score'], color='lightgreen'
+                subset=['Accuracy', 'AUC', 'Precision', 'Recall', 'F1', 'MCC'], color='lightgreen'
             ).format({col: '{:.4f}' for col in comparison_df.columns if col != 'Model'}),
             width=None)
             

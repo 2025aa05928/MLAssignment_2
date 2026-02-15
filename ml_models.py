@@ -11,7 +11,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.naive_bayes import GaussianNB
 from xgboost import XGBClassifier
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix, roc_auc_score, roc_curve
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix, roc_auc_score, roc_curve, matthews_corrcoef
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -68,6 +68,7 @@ class MultiClassificationModels:
                 pass
         
         cm = confusion_matrix(self.y_test, y_pred)
+        mcc = matthews_corrcoef(self.y_test, y_pred)
         
         try:
             cv_scores = cross_val_score(model, self.X_train, self.y_train, cv=5, scoring='accuracy')
@@ -84,6 +85,7 @@ class MultiClassificationModels:
             'recall': recall,
             'f1_score': f1,
             'roc_auc': roc_auc,
+            'mcc': mcc,
             'confusion_matrix': cm,
             'cv_mean': cv_mean,
             'cv_std': cv_std,
@@ -102,12 +104,11 @@ class MultiClassificationModels:
             comparison_data.append({
                 'Model': name,
                 'Accuracy': results['accuracy'],
+                'AUC': results['roc_auc'] if results['roc_auc'] else np.nan,
                 'Precision': results['precision'],
                 'Recall': results['recall'],
-                'F1-Score': results['f1_score'],
-                'ROC AUC': results['roc_auc'] if results['roc_auc'] else np.nan,
-                'CV Mean': results['cv_mean'] if results['cv_mean'] else np.nan,
-                'CV Std': results['cv_std'] if results['cv_std'] else np.nan
+                'F1': results['f1_score'],
+                'MCC': results['mcc']
             })
         return pd.DataFrame(comparison_data).sort_values('Accuracy', ascending=False).reset_index(drop=True)
     
